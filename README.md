@@ -1,101 +1,111 @@
-<div align="center">
+# AI Document Chatbot using RAG
 
-![HERE AND NOW AI](https://raw.githubusercontent.com/hereandnowai/images/refs/heads/main/logos/logo-of-here-and-now-ai.png)
+A full-stack AI-powered document question-answering application built using **React, FastAPI, LangChain, FAISS, and Large Language Models (LLMs)**.
 
-# Full-Stack RAG Application — React Frontend & Python Backend with LLM
+The application allows users to upload PDF documents and ask questions based on their content using **Retrieval-Augmented Generation (RAG)**.
 
-### *"AI is Good"*
+## Tech Stack
 
-Production-grade RAG app: React UI, Python backend, vector search, and enterprise-ready LLM integration.
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Organization](https://img.shields.io/badge/HERE%20AND%20NOW%20AI-hereandnowai-004040)](https://github.com/hereandnowai)
-
-</div>
-
----
-
-## About
-
-This repository contains a full-stack Retrieval-Augmented Generation (RAG) application built by HERE AND NOW AI. It pairs a modern React frontend with a robust Python backend to deliver an enterprise-grade document Q&A experience powered by large language models.
-
-The application demonstrates best practices for building production-ready RAG systems: efficient document ingestion, vector storage, semantic retrieval, and streaming LLM responses — all wrapped in a clean, responsive UI.
-
-Whether you are studying RAG architecture or building your own LLM-powered product, this codebase serves as a practical, deployable reference implementation.
+| Component | Technology |
+|---|---|
+| Frontend | React, Vite, JavaScript |
+| Backend | Python, FastAPI |
+| AI Framework | LangChain |
+| Vector Database | FAISS |
+| Retrieval | Semantic Search + BM25 |
+| LLM | Groq API |
+| Embeddings | Google Gemini Embeddings |
+| Document Processing | PyPDF |
 
 ## Features
 
-- React frontend with a responsive chat interface
-- Python backend handling RAG pipeline (ingestion, retrieval, generation)
-- Vector database integration for semantic search
-- Streaming LLM responses for real-time UX
-- `render.yaml` for one-click cloud deployment
-- Enterprise proposal and demo guide included
+- PDF document upload and text extraction
+- AI-powered document question answering
+- Retrieval-Augmented Generation pipeline
+- Hybrid retrieval using FAISS and BM25
+- React-based chat interface
+- FastAPI REST endpoints
+- Session-based document interaction
 
-## Getting Started
+## How RAG Works
 
-### Prerequisites
+1. User uploads a PDF document.
+2. Backend extracts the document text.
+3. Text is divided into smaller chunks.
+4. Embeddings are generated for semantic search.
+5. FAISS stores and searches document vectors.
+6. BM25 helps retrieve relevant text.
+7. Relevant document context is sent to the LLM.
+8. The LLM generates an answer based on the retrieved content.
 
-- Node.js 18+ and npm/yarn (frontend)
-- Python 3.10+ (backend)
-- An LLM API key (OpenAI or compatible)
+## Installation
 
-### Installation
+### Backend
 
 ```bash
-git clone https://github.com/hereandnowai/react-python-rag-app.git
-cd react-python-rag-app
-
-# Backend
 cd backend
-pip install -r requirements.txt
-
-# Frontend
-cd ../frontend
-npm install
+python -m venv venv
 ```
 
-## Usage
+Activate the virtual environment:
+
+**Windows:**
+```powershell
+.\venv\Scripts\Activate.ps1
+```
+
+**Linux / Codespaces:**
+```bash
+source venv/bin/activate
+```
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Configure the required API credentials in your local environment:
+
+```env
+GROQ_API_KEY=your_groq_api_key
+GOOGLE_API_KEY=your_google_api_key
+```
 
 Start the backend:
 
 ```bash
-cd backend
-export OPENAI_API_KEY=your_key
-python main.py
+python -m uvicorn main:app --host 0.0.0.0 --port 8000
 ```
 
-Start the frontend:
+### Frontend
 
 ```bash
 cd frontend
-npm start
+npm install
+npm run dev
 ```
 
-Open http://localhost:3000 in your browser. Refer to `demo_guide.md` for a full walkthrough.
+Open the frontend using the URL displayed by Vite.
 
----
+## Project Status
 
-## Connect with HERE AND NOW AI
+**Work in progress.**
 
-| | |
-|---|---|
-| 🌐 **Website** | [hereandnowai.com](https://hereandnowai.com) |
-| 📧 **Email** | [info@hereandnowai.com](mailto:info@hereandnowai.com) |
-| 📞 **Phone** | +91 996 296 1000 |
-| 💼 **LinkedIn** | [linkedin.com/company/hereandnowai](https://www.linkedin.com/company/hereandnowai/) |
-| 🐦 **X / Twitter** | [x.com/hereandnow_ai](https://x.com/hereandnow_ai) |
-| 📸 **Instagram** | [instagram.com/hereandnow_ai](https://instagram.com/hereandnow_ai) |
-| ▶️ **YouTube** | [youtube.com/@hereandnow_ai](https://youtube.com/@hereandnow_ai) |
-| 🐙 **GitHub** | [github.com/hereandnowai](https://github.com/hereandnowai) |
-| 📝 **Blog** | [hereandnowai.com/blog](https://hereandnowai.com/blog) |
+The project is being configured and tested. Planned improvements include free/local model integration, improved PDF validation, and deployment documentation.
 
----
+## GitHub
 
-<div align="center">
+**Repository:** https://github.com/vdarji556/react-python-rag-chatbot
 
-**HERE AND NOW AI** — *AI is Good*
+## Original Project Attribution
 
-© 2025 HERE AND NOW AI. All rights reserved.
+This project is based on the open-source React + Python RAG application by **HERE AND NOW AI**.
 
-</div>
+Original repository: https://github.com/hereandnowai/react-python-rag-app
+
+The original MIT license and copyright notices are retained. This repository is being adapted for learning, experimentation, and portfolio development.
+
+## License
+
+MIT License — see the `LICENSE` file for details.
