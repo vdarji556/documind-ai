@@ -296,6 +296,3 @@ react-python-rag-chatbot/
 
 The application includes PDF processing, OCR integration, local embeddings, hybrid retrieval, and LLM-powered chat. End-to-end testing, performance optimization, and deployment improvements are ongoing.
 
-## Repository
-
-GitHub: https://github.com/vdarji556/react-python-rag-chatbot
